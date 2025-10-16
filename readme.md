@@ -53,7 +53,7 @@ pip install -r ComfyUI/requirements.txt
 ```
 Đây là mô hình chính của Stable Diffusion 1.5, dùng để tạo ảnh từ prompt.
 Bạn có thể tải từ Hugging Face, từ repository stable-diffusion-v1-5. [huggingface.co], [huggingface.co]
-Ví dụ link: stable-diffusion-v1-5 on Hugging Face. [huggingface.co], [huggingface.co](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5)
+Ví dụ link: stable-diffusion-v1-5 on Hugging Face. [huggingface.co], [huggingface.co](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/blob/main/v1-5-pruned.ckpt)
 Có thể chọn bản .safetensors để dùng ít VRAM hơn.
 ```
 ## AnimateDiff motion module: mm_sd_v15_v2.ckpt → models/animatediff/
