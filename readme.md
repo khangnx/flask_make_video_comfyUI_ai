@@ -84,21 +84,24 @@ vae-ft-mse-840000-ema-pruned.ckpt – dung lượng khoảng 335 MB. [huggingf
 Đường dẫn tải:
 Hugging Face – vae‑ft‑mse‑840000‑ema‑pruned.ckpt
 ```
-# ✅ 5. Tạo Flask App -> Coi treong code đã tạo xong các file như bên dưới
+# ✅ 5. Tạo Flask App -> Coi trong code đã tạo xong các file như bên dưới
+```
 app/__init__.py
 app/routes.py
 app/templates/index.html
 run.py
+```
 # ✅ 6. Chạy dự án
 
 1. Chạy Flask: python run.py
-2. Chạy ComfyUI: 
-```
+2. Chạy ComfyUI:
 
+```
 cd ComfyUI
 python main.py --listen 0.0.0.0 --port 8188
 
 ```
+### Giữ cho hai terminal luôn chạy
 ## Truy cập: http://127.0.0.1:5000 để input ảnh và genaral ra video
 
 # ✅ 7. Đây là flow xử lý như sau:
