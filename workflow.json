@@ -1,0 +1,12 @@
+{
+  "prompt": "a cat dancing in the rain",
+  "frame_count": 40,
+  "fps": 8,
+  "model": "../models/stable-diffusion/v1-5-pruned.ckpt",
+  "motion_module": "../models/animatediff/mm_sd_v15_v2.ckpt",
+  "vae": "../models/vae/vae-ft-mse-840000-ema-pruned.ckpt",
+  "controlnet": {
+    "model": "../models/controlnet/control_sd15_canny.pth",
+    "image": "app/static/uploads/reference.png"
+  }
+}

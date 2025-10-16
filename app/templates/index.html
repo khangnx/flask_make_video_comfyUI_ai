@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AnimateDiff-Evolved + ControlNet</title>
+    <script>
+        function showProgress() {
+            document.getElementById("progress").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>Tạo video với AnimateDiff-Evolved + ControlNet</h1>
+    <form method="POST" enctype="multipart/form-data" onsubmit="showProgress()">
+        <input type="text" name="prompt" placeholder="Nhập prompt" required><br><br>
+        <input type="number" name="duration" placeholder="Thời lượng (giây)" min="1" required><br><br>
+        <input type="file" name="image" accept="image/*"><br><br>
+        <button type="submit">Tạo video</button>
+    </form>
+
+    <div id="progress" style="display:none;">
+        <p>⏳ Đang xử lý... Vui lòng chờ.</p>
+    </div>
+
+    {% if image_path %}
+        <h2>Ảnh đã upload:</h2>
+        <img src="{{ image_path }}" width="256">
+    {% endif %}
+
+    {% if video_path %}
+        <h2>Video kết quả:</h2>
+        <video width="512" controls>
+            <source src="{{ video_path }}" type="video/mp4">
+        </video>
+    {% endif %}
+</body>
+</html>
