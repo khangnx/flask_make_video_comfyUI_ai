@@ -116,3 +116,43 @@ python main.py --listen 0.0.0.0 --port 8188
 5. Flask poll trạng thái từ ComfyUI, lấy video trả về.
 6. Flask lưu video vào app/static/videos và hiển thị cho người dùng.
 ```
+# Phải sửa lại hàm torch để chạy với CPU khi máy không có GPU // Thay trong file 'flask_video_comfy_ai\ComfyUI\ComfyUI\comfy\model_management.py'
+
+```
+def get_torch_device():
+    global directml_enabled
+    global cpu_state
+
+    # Ưu tiên DirectML nếu được bật
+    if directml_enabled:
+        global directml_device
+        return directml_device
+
+    # Xử lý CPU theo trạng thái
+    if cpu_state == CPUState.MPS:
+        return torch.device("mps")
+    if cpu_state == CPUState.CPU:
+        return torch.device("cpu")
+
+    # Xử lý các thiết bị đặc biệt
+    try:
+        if is_intel_xpu():
+            return torch.device("xpu", torch.xpu.current_device())
+        elif is_ascend_npu():
+            return torch.device("npu", torch.npu.current_device())
+        elif is_mlu():
+            return torch.device("mlu", torch.mlu.current_device())
+        elif torch.cuda.is_available():
+            return torch.device(torch.cuda.current_device())
+        else:
+            print("Không có thiết bị tăng tốc khả dụng, chuyển sang CPU.")
+            return torch.device("cpu")
+    except (AssertionError, RuntimeError) as e:
+        print("Lỗi thiết bị tăng tốc:", e)
+        print("Torch không hỗ trợ CUDA hoặc thiết bị đặc biệt, chuyển sang CPU.")
+        return torch.device("cpu")
+    except Exception as e:
+        print("Lỗi không xác định:", e)
+        print("Chuyển sang CPU để đảm bảo an toàn.")
+        return torch.device("cpu")
+```
