@@ -42,7 +42,7 @@ git clone https://github.com/comfyanonymous/ComfyUI.git
 cd ComfyUI/custom_nodes
 git clone https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved.git
 ```
-Sau khi clone thì "Cài đặt thư viện cho ComfyUI" //Vì comfyUi là một module python hoàn cgi3nh và chạy riệng lẻ như một service
+Sau khi clone thì "Cài đặt thư viện cho ComfyUI" //Vì comfyUi là một module python hoàn chỉnh và chạy riêng lẻ như một service
 
 ```
 pip install -r ComfyUI/requirements.txt
